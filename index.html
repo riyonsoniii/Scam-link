@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Will you be my Valentine?</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f7cfd9;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+    }
+
+    .card {
+        background: #fdfdfd;
+        width: 90%;
+        max-width: 420px;
+        padding: 30px 20px 40px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        position: relative;
+
+    }
+
+    .emoji {
+        font-size: 60px;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+
+    .buttons {
+        position: relative;
+        height: 80px;
+    }
+
+    #yes {
+        background: #e91e63;
+        color: white;
+        border: none;
+        padding: 14px 40px;
+        font-size: 18px;
+        border-radius: 40px;
+        cursor: pointer;
+    }
+
+    #no {
+    position: absolute;
+    font-size: 24x;
+    color: #888;
+    cursor: pointer;
+     left: 50%;
+    bottom:5px;
+    transform: translateX(-50%);
+
+    padding: 4px 8px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.08);
+    transition: all 0.2s ease;
+
+}
+    .hint {
+        font-size: 14px;
+        color: #777;
+        margin-top: 25px;
+        letter-spacing: 0.3px;
+
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="emoji">🐱💗</div>
+
+    <h2>SUMAN will you be my valentine?</h2>
+
+    <div class="buttons">
+        <button id="yes">Yes</button>
+        <div id="no">No</div>
+    </div>
+
+    <div class="hint">No seems a bit shy😶‍🌫️ </div>
+</div>
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const card = document.querySelector(".card");
+
+let canRun = false;
+
+// wait 1.5 seconds before No starts running
+setTimeout(() => {
+    canRun = true;
+},1000);
+
+noBtn.addEventListener("mouseover", () => {
+    if (!canRun) return; // stay calm first 😌
+
+    const cardWidth = card.offsetWidth - 50;
+    const cardHeight = card.offsetHeight - 50;
+
+    const x = Math.random() * cardWidth;
+    const y = Math.random() * cardHeight;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+yesBtn.addEventListener("click", () => {
+    window.location.href = "yes.html";
+});
+</script>
+
+</body>
+</html>
